@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  labels:
+  {{- include "labels.common" . | nindent 4 }}
+  name: {{ .Values.name }}
+  namespace: {{ .Values.namespace }}
+spec:
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      {{- include "labels.selector" . | nindent 6 }}
+  template:
+    metadata:
+      annotations:
+        scheduler.alpha.kubernetes.io/critical-pod: ""
+      labels:
+        {{- include "labels.selector" . | nindent 8 }}
+    spec:
+      containers:
+        - name: "calico-user-defined-routes"
+          env:
+            - name: VNET_CIDR
+              value: {{ .Values.Cidr }}
+          image: "{{ .Values.image.registry }}/{{ .Values.image.name }}:{{ .Values.image.tag }}"
+          imagePullPolicy: IfNotPresent
+          securityContext:
+            privileged: true
+      hostNetwork: true
+      priorityClassName: system-node-critical
+      restartPolicy: Always
+      serviceAccountName: calico-node
+      terminationGracePeriodSeconds: 0
+      tolerations:
+        - effect: NoSchedule
+          operator: Exists
+        - key: CriticalAddonsOnly
+          operator: Exists
+        - effect: NoExecute
+          operator: Exists

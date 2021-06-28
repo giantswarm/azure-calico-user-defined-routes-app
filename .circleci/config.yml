@@ -5,13 +5,24 @@ orbs:
 workflows:
   package-and-push-chart-on-tag:
     jobs:
+      # build and push docker image to quay.
+      - architect/push-to-docker:
+          name: push-azure-calico-user-defined-routes-to-quay
+          image: "quay.io/giantswarm/azure-calico-user-defined-routes"
+          username_envar: "QUAY_USERNAME"
+          password_envar: "QUAY_PASSWORD"
+          filters:
+            # Trigger the job also on git tag.
+            tags:
+              only: /^v.*/
+      # build and push chart
       - architect/push-to-app-catalog:
           context: "architect"
           # executor: "app-build-suite" # uncomment this if you want automatic metadata generation
-          name: "package and push {APP-NAME} chart"
+          name: "package and push azure-calico-user-defined-routes-app chart"
           app_catalog: "giantswarm-playground-catalog"
           app_catalog_test: "giantswarm-playground-test-catalog"
-          chart: "{APP-NAME}"
+          chart: "azure-calico-user-defined-routes-app"
           # Trigger job on git tag.
           filters:
             tags:
