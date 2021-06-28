@@ -8,7 +8,7 @@ fi
 
 IPTABLES=/sbin/iptables
 
-RULE="-t nat -A POSTROUTING -m addrtype ! --dst-type local ! -d ${VNET_CIDR} -j MASQUERADE"
+RULE="POSTROUTING -t nat -m addrtype ! --dst-type local ! -d ${VNET_CIDR} -j MASQUERADE"
 
 while : ; do
   if $IPTABLES -C ${RULE}
