@@ -3,10 +3,11 @@ orbs:
   architect: giantswarm/architect@2.5.0
 
 workflows:
-  package-and-push-chart-on-tag:
+  package-and-push-docker-image-and-chart:
     jobs:
       # build and push docker image to quay.
       - architect/push-to-docker:
+          context: "architect"
           name: push-azure-calico-user-defined-routes-to-quay
           image: "quay.io/giantswarm/azure-calico-user-defined-routes"
           username_envar: "QUAY_USERNAME"
