@@ -23,7 +23,7 @@ workflows:
           name: "package and push azure-calico-user-defined-routes-app chart"
           app_catalog: "giantswarm-playground-catalog"
           app_catalog_test: "giantswarm-playground-test-catalog"
-          chart: "azure-calico-user-defined-routes-app"
+          chart: "azure-calico-user-defined-routes"
           # Trigger job on git tag.
           filters:
             tags:
