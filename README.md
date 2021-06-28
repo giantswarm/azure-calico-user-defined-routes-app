@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/giantswarm/{APP-NAME}-app.svg?style=shield)](https://circleci.com/gh/giantswarm/{APP-NAME}-app)
+[![CircleCI](https://circleci.com/gh/giantswarm/azure-calico-user-defined-routes-app/tree/master.svg?style=svg)](https://circleci.com/gh/giantswarm/azure-calico-user-defined-routes-app/tree/master)
 
 # {APP-NAME} chart
 
