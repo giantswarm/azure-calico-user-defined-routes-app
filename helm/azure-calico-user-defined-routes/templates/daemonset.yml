@@ -21,7 +21,7 @@ spec:
         - name: "calico-user-defined-routes"
           env:
             - name: VNET_CIDR
-              value: {{ .Values.Cidr }}
+              value: {{ .Values.clusterCIDR }}
           image: "{{ .Values.image.registry }}/{{ .Values.image.name }}:{{ .Values.image.tag }}"
           imagePullPolicy: IfNotPresent
           securityContext:
