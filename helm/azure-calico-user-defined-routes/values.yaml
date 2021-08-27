@@ -9,7 +9,7 @@ project:
 image:
   registry: quay.io
   name: giantswarm/azure-calico-user-defined-routes
-  tag: v0.0.1
+  tag: [[ .Version ]]
   pullPolicy: IfNotPresent
 
 cidr: ""
