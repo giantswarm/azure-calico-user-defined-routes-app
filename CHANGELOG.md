@@ -7,8 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.0] - 2021-08-30
+
 ### Added
 
 - First release
 
-[Unreleased]: https://github.com/giantswarm/REPOSITORY_NAME/tree/master
+[Unreleased]: https://github.com/giantswarm/azure-calico-user-defined-routes-app/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/giantswarm/azure-calico-user-defined-routes-app/releases/tag/v0.1.0
