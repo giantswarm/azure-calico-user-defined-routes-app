@@ -8,8 +8,8 @@ workflows:
       # build and push docker image to quay.
       - architect/push-to-docker:
           context: "architect"
-          name: push-azure-calico-user-defined-routes-to-quay
-          image: "quay.io/giantswarm/azure-calico-user-defined-routes"
+          name: push-calico-policy-only-to-quay
+          image: "quay.io/giantswarm/calico-policy-only"
           username_envar: "QUAY_USERNAME"
           password_envar: "QUAY_PASSWORD"
           filters:
@@ -20,10 +20,10 @@ workflows:
       - architect/push-to-app-catalog:
           context: "architect"
           # executor: "app-build-suite" # uncomment this if you want automatic metadata generation
-          name: "package and push azure-calico-user-defined-routes-app chart"
-          app_catalog: "giantswarm-playground-catalog"
-          app_catalog_test: "giantswarm-playground-test-catalog"
-          chart: "azure-calico-user-defined-routes"
+          name: "package and push calico-policy-only-app chart"
+          app_catalog: "default-catalog"
+          app_catalog_test: "default-test-catalog"
+          chart: "calico-policy-only"
           # Trigger job on git tag.
           filters:
             tags:

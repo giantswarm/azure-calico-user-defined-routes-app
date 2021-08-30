@@ -1,4 +1,4 @@
-name: azure-calico-user-defined-routes
+name: calico-policy-only
 namespace: kube-system
 serviceType: managed
 
@@ -8,7 +8,7 @@ project:
 
 image:
   registry: quay.io
-  name: giantswarm/azure-calico-user-defined-routes
+  name: giantswarm/calico-policy-only
   tag: [[ .Version ]]
   pullPolicy: IfNotPresent
 

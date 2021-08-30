@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/giantswarm/azure-calico-user-defined-routes-app/tree/master.svg?style=svg)](https://circleci.com/gh/giantswarm/azure-calico-user-defined-routes-app/tree/master)
+[![CircleCI](https://circleci.com/gh/giantswarm/calico-policy-only-app/tree/master.svg?style=svg)](https://circleci.com/gh/giantswarm/calico-policy-only-app/tree/master)
 
 # Azure Calico User Defined Routes chart
 

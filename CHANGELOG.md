@@ -13,5 +13,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - First release
 
-[Unreleased]: https://github.com/giantswarm/azure-calico-user-defined-routes-app/compare/v0.1.0...HEAD
-[0.1.0]: https://github.com/giantswarm/azure-calico-user-defined-routes-app/releases/tag/v0.1.0
+[Unreleased]: https://github.com/giantswarm/calico-policy-only-app/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/giantswarm/calico-policy-only-app/releases/tag/v0.1.0
