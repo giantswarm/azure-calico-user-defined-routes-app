@@ -13,8 +13,10 @@ image:
   pullPolicy: IfNotPresent
 
 calico:
+  version: 3.15.3
   images:
     cni: giantswarm/cni:v3.15.3
     node: giantswarm/node:v3.15.3
+    crdInstaller: giantswarm/calico-crd-installer:v3.15.3
 
 clusterCIDR: ""
