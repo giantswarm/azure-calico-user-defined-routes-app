@@ -1,9 +1,8 @@
 [![CircleCI](https://circleci.com/gh/giantswarm/azure-calico-user-defined-routes-app/tree/master.svg?style=svg)](https://circleci.com/gh/giantswarm/azure-calico-user-defined-routes-app/tree/master)
 
-# {APP-NAME} chart
+# Azure Calico User Defined Routes chart
 
-Giant Swarm offers a {APP-NAME} App which can be installed in workload clusters.
-Here we define the {APP-NAME} chart with its templates and default configuration.
+This app installs calico in policy only mode to be used with user defined routes for CNI needs.
 
 **What is this app?**
 **Why did we add it?**
