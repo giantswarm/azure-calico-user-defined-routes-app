@@ -12,4 +12,9 @@ image:
   tag: [[ .Version ]]
   pullPolicy: IfNotPresent
 
+calico:
+  images:
+    cni: giantswarm/cni:v3.15.3
+    node: giantswarm/node:v3.15.3
+
 clusterCIDR: ""
