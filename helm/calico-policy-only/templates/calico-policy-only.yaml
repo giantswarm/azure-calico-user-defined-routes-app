@@ -5,12 +5,12 @@
 #  - Made install-cni initContainer.
 #  - Added 'priorityClassName: system-cluster-critical' to calico daemonset and calico typha deployment.
 #
-# Calico Version v3.14.1
+# Calico Version v3.15.3
 # https://docs.projectcalico.org/release-notes/#v3141
 # This manifest includes the following component versions:
-#   calico/node:v3.14.1
-#   calico/cni:v3.14.1
-#   calico/typha:v3.14.1
+#   calico/node:v3.15.3
+#   calico/cni:v3.15.3
+#   calico/typha:v3.15.3
 
 # This ConfigMap is used to configure a self-hosted Calico installation.
 kind: ConfigMap
@@ -60,28 +60,6 @@ data:
       ]
     }
 ---
-
-
-# This manifest creates a Service, which will be backed by Calico's Typha daemon.
-# Typha sits in between Felix and the API server, reducing Calico's load on the API server.
-
-apiVersion: v1
-kind: Service
-metadata:
-  name: calico-typha
-  namespace: kube-system
-  labels:
-    k8s-app: calico-typha
-spec:
-  ports:
-    - port: 5473
-      protocol: TCP
-      targetPort: calico-typha
-      name: calico-typha
-  selector:
-    k8s-app: calico-typha
----
-
 # This manifest installs the calico-node container, as well
 # as the CNI plugins and network config on
 # each master and worker node in a Kubernetes cluster.
@@ -137,6 +115,7 @@ spec:
       # deletion": https://kubernetes.io/docs/concepts/workloads/pods/pod/#termination-of-pods.
       terminationGracePeriodSeconds: 0
       priorityClassName: system-node-critical
+      {{ if eq .Values.provider "azure" -}}
       initContainers:
         # This container installs the CNI binaries
         # and CNI network config file on each node.
@@ -172,6 +151,7 @@ spec:
               name: cni-net-dir
           securityContext:
             privileged: true
+      {{ end -}}
       containers:
         # Runs calico-node container on each Kubernetes node.  This
         # container programs network policy and routes on each
@@ -213,6 +193,10 @@ spec:
               value: "false"
             - name: FELIX_IPTABLESMANGLEALLOWACTION
               value: Return
+            {{- if eq .Values.provider "aws" }}
+            - name: FELIX_INTERFACEPREFIX
+              value: eni
+            {{- end }}
             # Set Felix logging to "info"
             - name: FELIX_LOGSEVERITYSCREEN
               value: "info"

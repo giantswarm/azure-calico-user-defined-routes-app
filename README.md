@@ -1,6 +1,6 @@
 [![CircleCI](https://circleci.com/gh/giantswarm/calico-policy-only-app/tree/master.svg?style=svg)](https://circleci.com/gh/giantswarm/calico-policy-only-app/tree/master)
 
-# Azure Calico User Defined Routes chart
+# Calico policy-only chart
 
 This app installs calico in policy only mode to be used with user defined routes for CNI needs.
 

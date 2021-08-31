@@ -19,4 +19,5 @@ calico:
     node: giantswarm/node:v3.15.3
     crdInstaller: giantswarm/calico-crd-installer:v3.15.3
 
+provider: "azure"
 clusterCIDR: ""
