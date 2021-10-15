@@ -3,7 +3,7 @@ appVersion: 0.0.1
 description: A Helm chart to apply needed iptables rules in order for Calico user defined routes to work on Azure.
 engine: gotpl
 home: https://github.com/giantswarm/calico-policy-only-app
-icon: https://s.giantswarm.io/app-icons/1/png/default-app-light.png
+#icon: https://s.giantswarm.io/app-icons/1/png/default-app-light.png
 name: calico-policy-only
 sources:
 - https://github.com/giantswarm/calico-policy-only-app
